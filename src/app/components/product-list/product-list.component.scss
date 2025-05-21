@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background-color: #f9fafb;
+
+  .product-list-wrapper {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .search-bar {
+      margin-top: 1rem;
+      position: relative;
+      max-width: 300px;
+      width: 100%;
+
+      input {
+        width: 100%;
+        padding: 0.5rem 1.25rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        background-color: #fff;
+      }
+
+      i.pi-search {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 1rem;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .search-bar {
+        margin-top: 0;
+      }
+    }
+  }
+
+  ::ng-deep .product-table {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+
+    .p-datatable-thead > tr > th {
+      background-color: #f0f2f5;
+      font-weight: 600;
+      padding: 1rem;
+      color: #333;
+    }
+
+    .p-datatable-tbody > tr > td {
+      padding: 1rem;
+      vertical-align: top;
+    }
+
+    .p-datatable-tbody > tr:hover {
+      background-color: #f5faff;
+    }
+
+    .p-paginator {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+
+      .p-paginator-page,
+      .p-paginator-next,
+      .p-paginator-prev,
+      .p-paginator-first,
+      .p-paginator-last {
+        min-width: 2rem;
+        height: 2rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.95rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #e9f4ff;
+        }
+      }
+
+      .p-paginator-page.p-highlight {
+        background-color: #007ad9;
+        color: #fff;
+        border-color: #007ad9;
+      }
+
+      .p-dropdown {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

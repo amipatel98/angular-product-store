@@ -1,0 +1,56 @@
+<div class="product-list-wrapper">
+  <div class="header p-d-flex p-jc-between p-ai-center p-mb-3">
+    <h2 class="title">Product List</h2>
+    <div class="p-input-icon-left search-bar">
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Search by title or category"
+        [(ngModel)]="searchProduct"
+        (input)="filterProductList()"
+      />
+    </div>
+  </div>
+
+  <p-table
+    [value]="filteredProductList"
+    [paginator]="true"
+    [rows]="5"
+    [responsiveLayout]="'scroll'"
+    class="product-table"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Rating</th>
+        <th>Rating Count</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product?.id }}</td>
+        <td>{{ product?.title }}</td>
+        <td>{{ product?.price | currency }}</td>
+        <td>{{ product?.category }}</td>
+        <td>{{ product?.description }}</td>
+        <td>
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            width="50"
+            class="shadow-lg"
+          />
+        </td>
+
+        <td>{{ product?.rating.rate }}</td>
+        <td>{{ product?.rating.count }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
