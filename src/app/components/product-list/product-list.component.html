@@ -19,6 +19,8 @@
     [rows]="5"
     [responsiveLayout]="'scroll'"
     class="product-table"
+    [loading]="loading"
+    [rowsPerPageOptions]="[5, 10, 25, 50]"
   >
     <ng-template pTemplate="header">
       <tr>
@@ -47,8 +49,14 @@
             class="shadow-lg"
           />
         </td>
+        <td>
+          <p-rating
+            [ngModel]="product?.rating.rate"
+            [readonly]="true"
+            [cancel]="false"
+          />
+        </td>
 
-        <td>{{ product?.rating.rate }}</td>
         <td>{{ product?.rating.count }}</td>
       </tr>
     </ng-template>
